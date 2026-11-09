@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Descubre nuestras propuestas de pizza, pasta y catering para eventos.">
+  <title>Pizza y eventos | Amici</title>
+  <link rel="stylesheet" href="paginas.css">
+  <script src="paginas.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Ir a la página principal">
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span>AMICI<span class="brand-period">.</span></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="menu-toggle-label">Menú</span>
+      <span class="menu-toggle-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Navegación principal">
+      <a href="paginas.html?pagina=pizza">Pizza</a>
+      <a href="paginas.html?pagina=pasta">Pasta</a>
+      <details class="nav-dropdown">
+        <summary>Inspiración</summary>
+        <div class="dropdown-menu">
+          <a href="paginas.html?pagina=festivales">Festivales y eventos</a>
+          <a href="paginas.html?pagina=empresas">Eventos corporativos</a>
+        </div>
+      </details>
+      <a href="paginas.html?pagina=historias">Historias</a>
+      <a href="paginas.html?pagina=nosotros">Nosotros</a>
+      <a href="paginas.html?pagina=contacto">Contacto</a>
+      <a class="nav-cta" href="paginas.html?pagina=contacto">Pide información <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="page-content" tabindex="-1">
+    <div class="loading-state" role="status">Cargando página…</div>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand brand-footer" href="./"><span class="brand-mark" aria-hidden="true">A</span><span>AMICI<span class="brand-period">.</span></span></a>
+    <p>Un buen momento empieza alrededor de la mesa.</p>
+    <a href="paginas.html?pagina=contacto">Hablemos de tu evento <span aria-hidden="true">↗</span></a>
+    <small>© <span id="current-year"></span> Amici. Página de demostración independiente.</small>
+  </footer>
+</body>
+</html>
