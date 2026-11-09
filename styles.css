@@ -1,0 +1,330 @@
+/* =================================================================atea
+ * Pizza Amici Clone — styles.css
+ * ================================================================= */
+
+:root {
+  --color-dark: #2b1d15;
+  --color-bg: #fffbf7;
+  --color-accent: #e54b3e;
+  --color-blue: #1B2F5E;
+  --color-yellow: #f4d06f;
+  --cubic-default: cubic-bezier(0.525, 0, 0, 1);
+  --cubic-bounce: cubic-bezier(.175, .885, .32, 1.275);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.450s;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Azeret Mono', monospace, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Accent */
+.script-font {
+  font-family: 'La Belle Aurore', cursive;
+}
+
+/* Page Wrapper & Layout */
+.page-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background: rgba(255, 251, 247, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(43, 29, 21, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-dark);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s var(--cubic-bounce);
+}
+
+.nav-logo:hover {
+  transform: scale(1.04) rotate(-1deg);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--color-dark);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.35s var(--cubic-default);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.nav-button {
+  background: var(--color-dark);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s var(--cubic-bounce);
+}
+
+.nav-button:hover {
+  transform: scale(1.04) rotate(-1deg);
+  background: var(--color-accent);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 10rem 2rem 5rem 2rem;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at center, #fff3e6 0%, var(--color-bg) 70%);
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--color-yellow);
+  color: var(--color-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--color-dark);
+}
+
+.hero-title span {
+  color: var(--color-accent);
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #5a4a42;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 99px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(229, 75, 62, 0.3);
+  transition: all 0.2s var(--cubic-bounce);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: #d43a2d;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-dark);
+  border: 2px solid var(--color-dark);
+  padding: 1rem 2rem;
+  border-radius: 99px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s var(--cubic-bounce);
+}
+
+.btn-secondary:hover {
+  background: var(--color-dark);
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Card Shape (Notched Corners) */
+.card-shape {
+  background: #fff;
+  border-radius: 0;
+  padding: 2.5rem;
+  position: relative;
+  -webkit-mask:
+    radial-gradient(circle at 0 0, transparent 20px, white 20px) top left,
+    radial-gradient(circle at 100% 0, transparent 20px, white 20px) top right,
+    radial-gradient(circle at 0 100%, transparent 20px, white 20px) bottom left,
+    radial-gradient(circle at 100% 100%, transparent 20px, white 20px) bottom right;
+  -webkit-mask-size: 51% 51%;
+  -webkit-mask-repeat: no-repeat;
+  mask:
+    radial-gradient(circle at 0 0, transparent 20px, white 20px) top left,
+    radial-gradient(circle at 100% 0, transparent 20px, white 20px) top right,
+    radial-gradient(circle at 0 100%, transparent 20px, white 20px) bottom left,
+    radial-gradient(circle at 100% 100%, transparent 20px, white 20px) bottom right;
+  mask-size: 51% 51%;
+  mask-repeat: no-repeat;
+  box-shadow: 0 20px 40px rgba(43, 29, 21, 0.08);
+  border: 1px solid rgba(43, 29, 21, 0.1);
+  transition: transform 0.3s var(--cubic-bounce);
+}
+
+.card-shape:hover {
+  transform: translateY(-5px);
+}
+
+/* Sections */
+.section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Grid Layouts */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* Menu / Foodtruck Features */
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-dark);
+}
+
+.feature-card p {
+  color: #6a554a;
+  line-height: 1.6;
+}
+
+/* Reviews Section / Swiper */
+.reviews-section {
+  background: #2b1d15;
+  color: #fff;
+  padding: 6rem 2rem;
+  margin: 4rem 0;
+}
+
+.review-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 1rem;
+}
+
+.review-text {
+  font-size: 1.15rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.review-author {
+  font-weight: 600;
+  color: var(--color-yellow);
+}
+
+/* Footer */
+.footer {
+  background: #1b120d;
+  color: #fff;
+  padding: 4rem 2rem 2rem 2rem;
+  text-align: center;
+}
+
+.footer p {
+  color: #a8958b;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .hero-section {
+    padding-top: 8rem;
+  }
+}
